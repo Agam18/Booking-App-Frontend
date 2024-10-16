@@ -20,7 +20,7 @@ const MakeBookings = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/centres', {
+    fetch('https://booking-app-m5nv.onrender.com/api/centres', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`, // Add your token here
@@ -32,7 +32,7 @@ const MakeBookings = () => {
 
   const handleCentreChange = (centreId) => {
     setSelectedCentreId(centreId);
-    fetch(`http://localhost:5000/api/centres/sports?centreId=${centreId}`, {
+    fetch(`https://booking-app-m5nv.onrender.com/api/centres/sports?centreId=${centreId}`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`, // Add your token here
@@ -44,7 +44,7 @@ const MakeBookings = () => {
 
   const handleSportChange = (sportId) => {
     setSelectedSportId(sportId);
-    fetch(`http://localhost:5000/api/centres/courts?sportId=${sportId}`, {
+    fetch(`https://booking-app-m5nv.onrender.com/api/centres/courts?sportId=${sportId}`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`, // Add your token here
@@ -61,7 +61,7 @@ const MakeBookings = () => {
   const handleViewSlots = (date) => {
     if (selectedSportId && selectedCentreId && selectedCourtId) {
       fetch(
-        `http://localhost:5000/api/bookings?sportId=${selectedSportId}&centreId=${selectedCentreId}&courtId=${selectedCourtId}&date=${date}`,
+        `https://booking-app-m5nv.onrender.com/api/bookings?sportId=${selectedSportId}&centreId=${selectedCentreId}&courtId=${selectedCourtId}&date=${date}`,
         {
           method: 'GET',
           headers: {
@@ -77,7 +77,7 @@ const MakeBookings = () => {
   const handleCreateBooking = () => {
     if (selectedSlot) {
       const { courtId, startTime, endTime } = selectedSlot;
-      fetch('http://localhost:5000/api/bookings', {
+      fetch('https://booking-app-m5nv.onrender.com/bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -16,7 +16,7 @@ const ViewBookings = () => {
 
   useEffect(() => {
     // Fetch centres
-    fetch('http://localhost:5000/api/centres', {
+    fetch('https://booking-app-m5nv.onrender.com/api/centres', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`, // Add your token here
@@ -33,7 +33,7 @@ const ViewBookings = () => {
   const handleCentreChange = (centreId) => {
     setSelectedCentreId(centreId);
     // Fetch sports based on selected centre
-    fetch(`http://localhost:5000/api/centres/sports?centreId=${centreId}`, {
+    fetch(`https://booking-app-m5nv.onrender.com/api/centres/sports?centreId=${centreId}`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`, // Add your token here
@@ -50,7 +50,7 @@ const ViewBookings = () => {
   const handleViewBookings = () => {
     if (selectedCentreId && selectedSportId && selectedDate) {
       fetch(
-        `http://localhost:5000/api/bookings/view?centreId=${selectedCentreId}&sportId=${selectedSportId}&date=${selectedDate}`,
+        `https://booking-app-m5nv.onrender.com/api/bookings/view?centreId=${selectedCentreId}&sportId=${selectedSportId}&date=${selectedDate}`,
         {
           method: 'GET',
           headers: {
