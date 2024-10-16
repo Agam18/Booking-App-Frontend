@@ -77,7 +77,7 @@ const MakeBookings = () => {
   const handleCreateBooking = () => {
     if (selectedSlot) {
       const { courtId, startTime, endTime } = selectedSlot;
-      fetch('https://booking-app-m5nv.onrender.com/bookings', {
+      fetch('https://booking-app-m5nv.onrender.com/api/bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
